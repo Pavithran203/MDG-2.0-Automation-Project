@@ -1,17 +1,23 @@
-# MDG 2.0 Automation
+# MDG 2.0 Automation Project
 
-> Full source tree is included in `project-source.zip` at the repository root. Unpack it to restore the directories and files summarized below.
+Playwright and TypeScript end-to-end automation for MDG 2.0 login roles and workflows.
 
-Playwright and TypeScript end-to-end automation for MDG 2.0 login roles and workflow scenarios.
+## Current example: role login smoke test
 
-## Included files
+The included suite covers login checks for the **Initiator, Validator, Reviewer, Cataloguer, and QC** roles. After configuring authorized test credentials locally, install dependencies and browsers, then run:
 
-- `src/`: Playwright page objects, role configuration, and results reporter.
-- `tests/`: scenario tests for login, dashboards, and MDG 2.0 library workflows.
-- `package.json`, `package-lock.json`, `playwright.config.ts`, `tsconfig.json`, and `.env.example`: dependencies and local configuration template.
+    npm install
+    npx playwright install
+    npm test
 
-The real `.env`, login report, generated browser artifacts, and dependencies are excluded.
+Use the individual scenario-NN npm scripts when you need to run a single included scenario. Consult package.json for the available script names.
 
-## Run locally
+**Scope note:** role login automation and helper tooling are included. Business workflows such as creating a request, validation, review, cataloguing, and QC are not implemented yet.
 
-Requires Node.js 18 or newer. Unpack `project-source.zip`, then run `npm install` and `npx playwright install`. Copy `.env.example` to `.env` and enter credentials you are authorized to use. Run `npm test` for the suite or use a `scenario-NN` npm script for one scenario.
+## Included
+- src/: Playwright page objects, role configuration, and results reporter.
+- tests/: included login and MDG 2.0 scenarios.
+- package.json, lockfile, Playwright/TypeScript configuration, and .env.example.
+- Full source tree: project-source.zip at the repository root. Download and extract it before setup.
+
+Requires Node.js 18 or newer. Copy .env.example to .env and add only credentials you are authorized to use. Real credentials, generated reports, browser artifacts, and dependencies are excluded; never commit .env.
